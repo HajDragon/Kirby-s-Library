@@ -64,3 +64,15 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
+@font-face {
+    font-family: '0xProto';
+    src: url('/fonts/0xProtoNerdFont-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Applying it to elements */
+body {
+    font-family: '0xproto';
+    background: #310f3d;
+}

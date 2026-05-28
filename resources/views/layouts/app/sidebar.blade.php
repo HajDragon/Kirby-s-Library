@@ -4,89 +4,87 @@
         @include('partials.head')
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">
-        <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
-            <flux:sidebar.header>
-                <x-app-logo :sidebar="true" href="{{ route('dashboard') }}" wire:navigate />
-                <flux:sidebar.collapse class="lg:hidden" />
-            </flux:sidebar.header>
+    <head>
+        <!-- ... -->
 
-            <flux:sidebar.nav>
-                <flux:sidebar.group :heading="__('Platform')" class="grid">
-                    <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Dashboard') }}
-                    </flux:sidebar.item>
-                </flux:sidebar.group>
-            </flux:sidebar.nav>
+        @fluxAppearance
+    </head>
+    <body class="min-h-screen bg-white dark:bg-zinc-800 antialiased">
+    <flux:header container class="h-20 bg-zinc-50 dark:bg-pink-900 border-b border-zinc-200 dark:border-zinc-700">
+        <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
 
-            <flux:spacer />
+        <flux:brand href="#" logo="{{asset('storage/logo/kirbylogo.png')}}" name="Kiby's Library." class="max-lg:hidden dark:hidden" />
+        <flux:brand href="#" logo="{{asset('storage/logo/kirbylogo.png')}}" name="Kirby's Library." class="max-lg:hidden! hidden dark:flex" />
 
-            <flux:sidebar.nav>
-                <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                    {{ __('Repository') }}
-                </flux:sidebar.item>
+        <flux:navbar class="-mb-px max-lg:hidden">
+            <flux:navbar.item wire:navigate icon="home" href="{{route('dashboard')}}">Books</flux:navbar.item>
+            <flux:navbar.item wire:navigate icon="document-text" href="{{route('documents')}}">Documents</flux:navbar.item>
+            <flux:navbar.item wire:navigate icon="calendar" href="#">Calendar</flux:navbar.item>
 
-                <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                    {{ __('Documentation') }}
-                </flux:sidebar.item>
-            </flux:sidebar.nav>
+            <flux:separator vertical variant="subtle" class="my-2"/>
 
-            <x-desktop-user-menu class="hidden lg:block" :name="auth()->user()->name" />
-        </flux:sidebar>
+            <flux:dropdown class="max-lg:hidden">
+                <flux:navbar.item icon:trailing="chevron-down">Favorites</flux:navbar.item>
 
-        <!-- Mobile User Menu -->
-        <flux:header class="lg:hidden">
-            <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
-
-            <flux:spacer />
-
-            <flux:dropdown position="top" align="end">
-                <flux:profile
-                    :initials="auth()->user()->initials()"
-                    icon-trailing="chevron-down"
-                />
-
-                <flux:menu>
-                    <flux:menu.radio.group>
-                        <div class="p-0 text-sm font-normal">
-                            <div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
-                                <flux:avatar
-                                    :name="auth()->user()->name"
-                                    :initials="auth()->user()->initials()"
-                                />
-
-                                <div class="grid flex-1 text-start text-sm leading-tight">
-                                    <flux:heading class="truncate">{{ auth()->user()->name }}</flux:heading>
-                                    <flux:text class="truncate">{{ auth()->user()->email }}</flux:text>
-                                </div>
-                            </div>
-                        </div>
-                    </flux:menu.radio.group>
-
-                    <flux:menu.separator />
-
-                    <flux:menu.radio.group>
-                        <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>
-                            {{ __('Settings') }}
-                        </flux:menu.item>
-                    </flux:menu.radio.group>
-
-                    <flux:menu.separator />
-
-                    <form method="POST" action="{{ route('logout') }}" class="w-full">
-                        @csrf
-                        <flux:menu.item
-                            as="button"
-                            type="submit"
-                            icon="arrow-right-start-on-rectangle"
-                            class="w-full cursor-pointer"
-                            data-test="logout-button"
-                        >
-                            {{ __('Log out') }}
-                        </flux:menu.item>
-                    </form>
-                </flux:menu>
+                <flux:navmenu>
+                    <flux:navmenu.item href="#">I</flux:navmenu.item>
+                    <flux:navmenu.item href="#">Love</flux:navmenu.item>
+                    <flux:navmenu.item href="#">Kirby</flux:navmenu.item>
+                </flux:navmenu>
             </flux:dropdown>
-        </flux:header>
+        </flux:navbar>
+
+        <flux:spacer />
+
+        <flux:navbar class="me-4">
+            <flux:navbar.item wire:navigate class="max-lg:hidden" icon="cog-6-tooth" href="{{route('profile.edit')}}" label="Settings" />
+        </flux:navbar>
+
+        <div class="hidden lg:block">
+            <x-desktop-user-menu />
+        </div>
+
+    </flux:header>
+
+    <flux:sidebar sticky collapsible="mobile" class="lg:hidden bg-zinc-50 dark:bg-pink-900 border-r border-zinc-200 dark:border-zinc-700">
+        <flux:sidebar.header>
+            <flux:sidebar.brand
+                href="{{ route('dashboard') }}"
+                logo="{{asset('storage/logo/kirbylogo.png')}}"
+                logo:dark="{{asset('storage/logo/kirbylogo.png')}}"
+                name="Kirby's Library."
+            />
+
+            <flux:sidebar.collapse class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2" />
+        </flux:sidebar.header>
+
+        <flux:sidebar.nav>
+            <flux:navbar.item icon="home" href="{{route('dashboard')}}">Books</flux:navbar.item>
+            <flux:navbar.item icon="document-text" href="{{route('documents')}}">Documents</flux:navbar.item>
+            <flux:navbar.item icon="calendar" href="#">Calendar</flux:navbar.item>
+
+            <flux:sidebar.group expandable heading="Open me !" class="grid">
+                <flux:navmenu.item href="#">I</flux:navmenu.item>
+                <flux:navmenu.item href="#">Love</flux:navmenu.item>
+                <flux:navmenu.item href="#">Kirby</flux:navmenu.item>
+            </flux:sidebar.group>
+        </flux:sidebar.nav>
+
+        <flux:sidebar.spacer />
+
+        <flux:sidebar.nav>
+            <flux:sidebar.item icon="cog-6-tooth" href="{{route('profile.edit')}}">Settings</flux:sidebar.item>
+            <flux:sidebar.item icon="information-circle" href="#">Help</flux:sidebar.item>
+            <x-desktop-user-menu/>
+        </flux:sidebar.nav>
+    </flux:sidebar>
+
+    <flux:main container>
+
+    </flux:main>
+
+    @fluxScripts
+    </body>
 
         {{ $slot }}
 
