@@ -89,7 +89,6 @@ new class extends Component
                     <flux:table.cell><img src="{{$book->image_url}}" alt="Book cover" class="w-10 h-10"></flux:table.cell>
 
                     <flux:table.cell class="flex items-center gap-3">
-                        <flux:avatar size="xs" src=""></flux:avatar>
                         {{$book->title}}
                     </flux:table.cell>
 

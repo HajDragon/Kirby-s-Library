@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="bg-red-100 text-slate-900 min-h-screen flex flex-col justify-center items-center relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen py-16">
+    <div class="bg-red-100 text-slate-900 min-h-screen flex flex-col justify-center items-center relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] w-screen py-16">
         <div class="max-w-5xl w-full mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
             <flux:text class="w-full md:w-2/3 border-2 border-red-200 p-6 rounded-2xl text-2xl bg-white text-slate-800 shadow-sm">
                 The franchise mainly consists of a video game series, which in turn mainly consists of platform games, where a common gameplay element is Kirby's ability to copy enemy skills, allowing him to use them to progress through levels. This and other changes in gameplay from traditional platform games distinguish the series from other entries in the genre. The series also includes other genres like puzzle and racing games. All Kirby video games have been developed for Nintendo video game consoles and handhelds dating from the Game Boy to the Nintendo Switch 2. Sakurai conceived the franchise as a game series for beginners, to which he partially attributes the series' success.[6] Currently, the video game series contains thirty-nine games with over fifty million games sold worldwide, making it one of the best-selling video game franchises.
