@@ -1,5 +1,5 @@
 <x-layouts::app :title="__('Edit Store')">
-    <div class="m-8 max-w-2xl">
+    <div class="mx-auto my-8 max-w-2xl">
         <flux:heading size="xl">Edit Store: {{ $store->name }}</flux:heading>
         <form action="{{ route('stores.update', $store) }}" method="POST" class="mt-8 space-y-6">
             @csrf

@@ -13,11 +13,12 @@
     <flux:header container class="h-20 bg-zinc-50 dark:bg-pink-900 border-b border-zinc-200 dark:border-zinc-700">
         <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
 
-        <flux:brand href="#" logo="{{asset('storage/logo/kirbylogo.png')}}" name="Kiby's Library." class="max-lg:hidden dark:hidden" />
-        <flux:brand href="#" logo="{{asset('storage/logo/kirbylogo.png')}}" name="Kirby's Library." class="max-lg:hidden! hidden dark:flex" />
+        <flux:brand href="#" logo="{{asset('storage/logo/kirbylogo.png')}}" name="Kiby's Game Collection." class="max-lg:hidden dark:hidden" />
+        <flux:brand href="#" logo="{{asset('storage/logo/kirbylogo.png')}}" name="Kirby's Game Collection." class="max-lg:hidden! hidden dark:flex" />
 
         <flux:navbar class="-mb-px max-lg:hidden">
-            <flux:navbar.item wire:navigate icon="home" href="{{route('dashboard')}}">Books</flux:navbar.item>
+            <flux:navbar.item wire:navigate icon="home" href="{{route('dashboard')}}">Games</flux:navbar.item>
+            <flux:navbar.item wire:navigate icon="building-storefront" href="{{route('stores.index')}}">Stores</flux:navbar.item>
             <flux:navbar.item wire:navigate icon="document-text" href="{{route('documents')}}">Documents</flux:navbar.item>
             <flux:navbar.item wire:navigate icon="calendar" href="#">Calendar</flux:navbar.item>
 
@@ -52,14 +53,15 @@
                 href="{{ route('dashboard') }}"
                 logo="{{asset('storage/logo/kirbylogo.png')}}"
                 logo:dark="{{asset('storage/logo/kirbylogo.png')}}"
-                name="Kirby's Library."
+                name="Kirby's Game Collection."
             />
 
             <flux:sidebar.collapse class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2" />
         </flux:sidebar.header>
 
         <flux:sidebar.nav>
-            <flux:navbar.item icon="home" href="{{route('dashboard')}}">Books</flux:navbar.item>
+            <flux:navbar.item icon="home" href="{{route('dashboard')}}">Games</flux:navbar.item>
+            <flux:navbar.item icon="building-storefront" href="{{route('stores.index')}}">Stores</flux:navbar.item>
             <flux:navbar.item icon="document-text" href="{{route('documents')}}">Documents</flux:navbar.item>
             <flux:navbar.item icon="calendar" href="#">Calendar</flux:navbar.item>
 
